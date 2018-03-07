@@ -1,5 +1,5 @@
 @import "mixins";
-
+@import "yo-ani/rotate";
 * {
   margin: 0;
   padding: 0;
@@ -50,21 +50,6 @@ audio {
     height: 5px;
     border-bottom: 3px solid #fff;
   }
-  //.move{
-  //  max-width: 980px;
-  //  height: 100%;
-  //  margin: 0 auto;
-  //  transform: rotate(180deg);
-  //div {
-  //  width: 30px;
-  //  height: 10px;
-  //  background: rgba(255,255,255,0.5);
-  //  float: left;
-  //  margin-right: 10px;
-  //  transform: rotate(180deg);
-  //  //display: none;
-  //}
-  //}
 }
 
 .box {
@@ -84,11 +69,8 @@ audio {
     @include zuoyou;
     bottom: 100px;
     text-align: center;
-    //display: block;
-    //&.active{
-    //  display: none;
-    //}
     .info-detail {
+      position: relative;
       float: left;
       width: 40%;
       height: 100%;
@@ -101,14 +83,31 @@ audio {
         transform: translate3d(0, 0, 0);
       }
       .left {
+        //position: absolute;
+        //top: 0;
+        //left: 0;
+        //right: 0;
+        //bottom: 0;
         width: 200px;
         height: 200px;
+        margin: auto;
         margin: 10px auto 0;
         border-radius: 50%;
-        background-imgage: url("../img/rz.jpg");
+        background-image: url("../img/mww.jpg");
         background-repeat: no-repeat;
         background-position: center 0px;
         background-size: 200px;
+        animation-name: rotatew ;
+        animation-timing-function: linear;
+        animation-duration: 2s;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        //animation-fill-mode: both;
+        //animation-direction: alternate;
+      }
+      @keyframes rotatew {
+        0%{transform: rotate(0deg)}
+        100%{transform: rotate(360deg)}
       }
       .right {
         width: 100%;
@@ -243,7 +242,7 @@ audio {
         width: 50px;
         height: 50px;
         float: left;
-        background: url("../img/rz.jpg") no-repeat center center;
+        background: url("../img/mww.jpg") no-repeat center center;
         //background-origin: content-box;
         background-size: 50px;
         //transition: box-shadow .8s linear;
@@ -257,9 +256,9 @@ audio {
         }
       }
       .time {
-        padding: 10px 0;
+        padding: 8px 0;
         width: 400px;
-        height: 50px;
+        height: 54px;
         float: left;
         margin-left: 10px;
         color: #fff;
@@ -273,12 +272,12 @@ audio {
         .time-bottom {
           width: 100%;
           height: 30px;
-          line-height: 30px;
+          line-height: 38px;
           .time-left {
-            width: 60px;
+            width: 80px;
             height: 30px;
             float: left;
-            line-height: 30px;
+            line-height: 38px;
             font-size: 12px;
             span {
               float: left;
@@ -286,21 +285,20 @@ audio {
           }
           .time-right {
             float: left;
-            width: 320px;
+            width: 300px;
             height: 8px;
-            margin-top: 10px;
+            margin-top: 16px;
             line-height: 50px;
-            background: url("../img/statbar.png") right 0;
             margin-left: 10px;
+              background: url("../img/statbar.png") right 0;
             position: relative;
-            //border-radius: 4px;
             cursor: pointer;
             .current-time {
               width: 30px;
               height: 10px;
               position: absolute;
               left: 0;
-              top: -14px;
+              top: -16px;
               text-align: center;
               line-height: 10px;
               font-size: 12px;
@@ -335,7 +333,7 @@ audio {
               height: 18px;
               border-radius: 50%;
               position: absolute;
-              top: -4px;
+              top: -6px;
               left: -7px;
               z-index: 10;
               background: url("../img/iconall.png") -2px -252px;
@@ -406,7 +404,7 @@ audio {
             height: 18px;
             border-radius: 50%;
             position: absolute;
-            top: -4px;
+            top: -6px;
             left: 130px;
             z-index: 10;
             background: url("../img/iconall.png") -2px -252px;

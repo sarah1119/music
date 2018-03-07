@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .d-1 {
   width: 8.33333%;
 }
@@ -124,6 +125,50 @@
   }
 }
 
+/**
+ * Yo框架动画解决方案
+ * Yo内置了超过60种动画形态，不同的动画可以任意组合
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+/**
+ * @module rotate
+ * @description 定义旋转动画
+ * @method rotate
+ */
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotatez(0deg);
+  }
+  to {
+    -webkit-transform: rotatez(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ani.rotate {
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -215,6 +260,7 @@ audio {
 }
 
 .box .top .info-detail {
+  position: relative;
   float: left;
   width: 40%;
   height: 100%;
@@ -232,12 +278,27 @@ audio {
 .box .top .info-detail .left {
   width: 200px;
   height: 200px;
+  margin: auto;
   margin: 10px auto 0;
   border-radius: 50%;
-  background-imgage: url("../img/rz.jpg");
+  background-image: url("../img/mww.jpg");
   background-repeat: no-repeat;
   background-position: center 0px;
   background-size: 200px;
+  animation-name: rotatew;
+  animation-timing-function: linear;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotatew {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .box .top .info-detail .right {
@@ -395,7 +456,7 @@ audio {
   width: 50px;
   height: 50px;
   float: left;
-  background: url("../img/rz.jpg") no-repeat center center;
+  background: url("../img/mww.jpg") no-repeat center center;
   background-size: 50px;
 }
 
@@ -410,9 +471,9 @@ audio {
 }
 
 .box .bottom .bottom-content .time {
-  padding: 10px 0;
+  padding: 8px 0;
   width: 400px;
-  height: 50px;
+  height: 54px;
   float: left;
   margin-left: 10px;
   color: #fff;
@@ -429,14 +490,14 @@ audio {
 .box .bottom .bottom-content .time .time-bottom {
   width: 100%;
   height: 30px;
-  line-height: 30px;
+  line-height: 38px;
 }
 
 .box .bottom .bottom-content .time .time-bottom .time-left {
-  width: 60px;
+  width: 80px;
   height: 30px;
   float: left;
-  line-height: 30px;
+  line-height: 38px;
   font-size: 12px;
 }
 
@@ -446,12 +507,12 @@ audio {
 
 .box .bottom .bottom-content .time .time-bottom .time-right {
   float: left;
-  width: 320px;
+  width: 300px;
   height: 8px;
-  margin-top: 10px;
+  margin-top: 16px;
   line-height: 50px;
-  background: url("../img/statbar.png") right 0;
   margin-left: 10px;
+  background: url("../img/statbar.png") right 0;
   position: relative;
   cursor: pointer;
 }
@@ -500,7 +561,7 @@ audio {
   height: 18px;
   border-radius: 50%;
   position: absolute;
-  top: -4px;
+  top: -6px;
   left: -7px;
   z-index: 10;
   background: url("../img/iconall.png") -2px -252px;
@@ -578,7 +639,7 @@ audio {
   height: 18px;
   border-radius: 50%;
   position: absolute;
-  top: -4px;
+  top: -6px;
   left: 130px;
   z-index: 10;
   background: url("../img/iconall.png") -2px -252px;
