@@ -17,6 +17,7 @@
 // window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
 
 // window.onload = function() {
+var maskwidth= document.getElementsByClassName('mask')[0].offsetWidth
     var audio = document.getElementById('audio');
     var ctx = new AudioContext();
     var analyser = ctx.createAnalyser();
@@ -30,20 +31,22 @@
     var frequencyData = new Uint8Array(analyser.frequencyBinCount);
 
     // we're ready to receive some data!
-    var canvas = document.getElementById('canvas'),
+    var canvas = document.getElementById('canvas');
+        canvas.width= maskwidth * 0.8,
         cwidth = canvas.width,
         cheight = canvas.height - 2,//底座的高度
         meterWidth = 10, //width of the meters in the spectrum
         gap = 2, //gap between meters
         capHeight = 2,
         capStyle = '#fff',
-        meterNum = 800 / (10 + 2), // meter的数量
+        meterNum =canvas.width / (10 + 2), // meter的数量
         capYPositionArray = []; ////存储caps的垂直位置
     ctx = canvas.getContext('2d'),
     gradient = ctx.createLinearGradient(0, 0, 0, 300);
     gradient.addColorStop(1, 'rgba(255,255,255,0.5)');
     gradient.addColorStop(0.5, '#ff0');
     gradient.addColorStop(0, '#f00');
+
     // loop
     function renderFrame() {
         var array = new Uint8Array(analyser.frequencyBinCount);
